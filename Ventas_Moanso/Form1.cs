@@ -33,21 +33,38 @@ namespace Ventas_Moanso
             {
                 string codigo = txtCodigo.Text.Trim();
                 string nombre = txtNombre.Text.Trim();
-                int cantidad = int.Parse(txtCantidad.Text);
-                decimal precio = decimal.Parse(txtPrecio.Text);
-                decimal total = precio * cantidad;
 
-
-                if (codigo == "" || nombre == "")
+                // Validar campos vacíos primero
+                if (codigo == "" || nombre == "" || txtCantidad.Text == "" || txtPrecio.Text == "")
                 {
                     MessageBox.Show("Completa todos los campos antes de registrar la venta.");
                     return;
                 }
 
+                // Validar cantidad
+                int cantidad;
+                if (!int.TryParse(txtCantidad.Text, out cantidad) || cantidad <= 0)
+                {
+                    MessageBox.Show("La cantidad debe ser un número entero positivo.");
+                    txtCantidad.Focus();
+                    return;
+                }
 
+                // Validar precio
+                decimal precio;
+                if (!decimal.TryParse(txtPrecio.Text, out precio) || precio <= 0)
+                {
+                    MessageBox.Show("El precio debe ser un número positivo.");
+                    txtPrecio.Focus();
+                    return;
+                }
+
+                decimal total = precio * cantidad;
+
+                // Agregar fila a la tabla
                 dgvVentas.Rows.Add(codigo, nombre, precio.ToString("0.00"), cantidad.ToString(), total.ToString("0.00"));
 
-
+                // Limpiar campos
                 txtCodigo.Clear();
                 txtNombre.Clear();
                 txtPrecio.Clear();
