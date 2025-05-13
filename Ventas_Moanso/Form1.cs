@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//ventas
+
 namespace Ventas_Moanso
 {
     public partial class Form1 : Form
@@ -23,36 +23,10 @@ namespace Ventas_Moanso
             dgvVentas.Columns[3].Name = "Cantidad";
             dgvVentas.Columns[4].Name = "Total";
         }
+   
+   
 
-
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            string codigo = txtCodigo.Text;
-            string nombre = txtNombre.Text;
-            string precio = txtPrecio.Text;
-            string cantidad = txtCantidad.Text;
-            string total = txtTotal.Text;
-
-            if (codigo == "" || nombre == "" || precio == "" || cantidad == "" || total == "")
-            {
-                MessageBox.Show("Completa todos los campos antes de registrar la venta.");
-                return;
-            }
-
-            string[] row = new string[] { codigo, nombre, precio, cantidad, total };
-            dgvVentas.Rows.Add(row);
-
-
-            txtCodigo.Clear();
-            txtNombre.Clear();
-            txtPrecio.Clear();
-            txtCantidad.Clear();
-            txtTotal.Clear();
-
-        }
-
-
-
+        //FUNCIÓN REGISTRAR
         private void btnRegistrar_Click_1(object sender, EventArgs e)
         {
             try
@@ -85,7 +59,7 @@ namespace Ventas_Moanso
                 MessageBox.Show("Error al registrar: " + ex.Message);
             }
         }
-
+      //FUNCIÓN
         private void btnCalcular_Click_1(object sender, EventArgs e)
         {
             decimal totalGeneral = 0;
