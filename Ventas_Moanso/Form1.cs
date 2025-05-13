@@ -24,7 +24,7 @@ namespace Ventas_Moanso
             dgvVentas.Columns[4].Name = "Total";
         }
    
-   
+ 
 
         //FUNCIÓN REGISTRAR
         private void btnRegistrar_Click_1(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace Ventas_Moanso
                 MessageBox.Show("Error al registrar: " + ex.Message);
             }
         }
-      //FUNCIÓN
+      //FUNCIÓN CALCULAR 
         private void btnCalcular_Click_1(object sender, EventArgs e)
         {
             decimal totalGeneral = 0;
