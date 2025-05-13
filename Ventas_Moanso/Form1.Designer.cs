@@ -1,4 +1,4 @@
-﻿namespace Ventas_Moanso
+﻿namespace Ventas_Moanso { 
     partial class Form1
     {
         /// <summary>
