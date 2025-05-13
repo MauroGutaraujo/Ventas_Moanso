@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//ventas
 namespace Ventas_Moanso
 {
     public partial class Form1 : Form
